@@ -95,12 +95,13 @@ GameObject:
   - component: {fileID: 3658628714369890332}
   - component: {fileID: 3658628714369890333}
   - component: {fileID: 3658628714369890306}
+  - component: {fileID: 2947756495156317596}
   - component: {fileID: 3658628714369890304}
   - component: {fileID: 3658628714369890305}
   - component: {fileID: 3658628714369890310}
   m_Layer: 0
-  m_Name: Agent Red
-  m_TagString: Untagged
+  m_Name: Agent02
+  m_TagString: Agent02
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perception: {fileID: 3658628714369890306}
   movement: {fileID: 3658628714369890333}
+  flockPerception: {fileID: 2947756495156317596}
+  fleeWeight: 0
+  seekWeight: 1
+  cohesionWeight: 0
   wanderDistance: 1
   wanderRadius: 3
   wanderDisplacement: 5
@@ -152,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   minSpeed: 1
-  maxForce: 5
+  maxForce: 6
 --- !u!114 &3658628714369890306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +171,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: Agent01
+  distance: 10
+  maxAngle: 45
+--- !u!114 &2947756495156317596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658628714369890311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1252fb8a332da99489c2521c96bb994f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: Agent02
   distance: 10
   maxAngle: 45
 --- !u!33 &3658628714369890304
@@ -196,7 +216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dcd76100a3b4db94aaef0021ec3eef35, type: 2}
+  - {fileID: 2100000, guid: d3264458054ad9a4b8d2d6b647f4a8e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
