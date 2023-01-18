@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3658628714369890305}
   - component: {fileID: 3658628714369890310}
   m_Layer: 0
-  m_Name: Agent01
+  m_Name: AutonomousAgent01
   m_TagString: Agent01
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19edf99ee162e094cbb47723092ead58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 5
-  maxSpeed: 10
+  minSpeed: 1
+  maxSpeed: 5
   maxForce: 100
 --- !u!114 &6523637772046441193
 MonoBehaviour:

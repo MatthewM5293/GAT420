@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3658628714369890305}
   - component: {fileID: 3658628714369890310}
   m_Layer: 0
-  m_Name: Agent02
+  m_Name: AutonomousAgent02
   m_TagString: Agent02
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,10 +202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c263f29c7575c47b43cbfdd7c53e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastTransform: {fileID: 5726710442486295998}
-  numRaycast: 16
   distance: 10
   maxAngle: 45
+  raycastTransform: {fileID: 5726710442486295998}
+  numRaycast: 16
   layerMask:
     serializedVersion: 2
     m_Bits: 64

@@ -28,13 +28,16 @@ public class AutonomousAgent : Agent
             movement.ApplyForce(Steering.Flee(this, gameObjects[0]) * data.fleeWeight);
         }
 
-        //flock
+        //flocking
         gameObjects = flockPerception.GetGameObjects();
         if (gameObjects.Length > 0)
         {
-            movement.ApplyForce(Steering.Cohesion(this, gameObjects) * data.cohesionWeight);
-            movement.ApplyForce(Steering.Separation(this, gameObjects, data.separationRadius) * data.separationWeight);
-            movement.ApplyForce(Steering.Alignment(this, gameObjects) * data.alignmentWeight);
+            foreach (var gameObject in gameObjects) 
+            {
+                movement.ApplyForce(Steering.Cohesion(this, gameObjects) * data.cohesionWeight);
+                movement.ApplyForce(Steering.Separation(this, gameObjects, data.separationRadius) * data.separationWeight);
+                movement.ApplyForce(Steering.Alignment(this, gameObjects) * data.alignmentWeight);
+            }
         }
 
         //wander

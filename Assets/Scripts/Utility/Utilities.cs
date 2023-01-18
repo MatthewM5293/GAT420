@@ -30,10 +30,10 @@ public static class Utilities
         List<Vector3> result = new List<Vector3>();
 
         // if odd number, set first direction as forward (0, 0, 1) 
-        if (num % 2 != 0) result.Add(Vector3.forward);
+        if (num % 2 == 1) result.Add(Vector3.forward);
 
         // compute the angle between rays 
-        float angleOffset = angle / num - 1; //< angle divided by(num – 1)>;
+        float angleOffset = angle / (num - 1); //< angle divided by(num – 1)>;
         // add the +/- directions around the circle 
         for (int i = 0; i < num / 2; i++)
         {
