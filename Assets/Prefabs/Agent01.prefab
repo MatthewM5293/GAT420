@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Agent01
   distance: 10
-  maxAngle: 45
+  maxAngle: 180
 --- !u!33 &3658628714369890304
 MeshFilter:
   m_ObjectHideFlags: 0
