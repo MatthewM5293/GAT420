@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AutonomousAgent : Agent
@@ -53,7 +52,10 @@ public class AutonomousAgent : Agent
             movement.ApplyForce(Steering.CalculateSteering(this, direction) * data.obstacleWeight);
         }
 
-        transform.position = Utilities.Wrap(transform.position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20));
+        transform.position = Utilities.Wrap(transform.position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20)); Vector3 position = transform.position;
+        position = Utilities.Wrap(position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20));
+        position.y = 0;
+        transform.position = position;
     }
 
 }
