@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025031726461096273, guid: 85570042ce71c58408b328e805070c74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9025031726461096273, guid: 85570042ce71c58408b328e805070c74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -480,6 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agents:
   - {fileID: 1304413686955885775, guid: ae750bf9585dd8b46b56ef0281ec4ad9, type: 3}
+  - {fileID: -1178514364946444329, guid: 00392cfc99a742549ae5bd67935f0494, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -516,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025031726461096273, guid: 85570042ce71c58408b328e805070c74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9025031726461096273, guid: 85570042ce71c58408b328e805070c74, type: 3}
       propertyPath: m_LocalPosition.z
