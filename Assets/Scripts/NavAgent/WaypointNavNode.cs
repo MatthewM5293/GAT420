@@ -16,6 +16,13 @@ public class WaypointNavNode : NavNode
 
         }
 
+        if (other.gameObject.TryGetComponent<Navigation>(out Navigation navigation))
+        {
+            if (navigation.targetNode == this && neighbors.Count > 0)
+            {
+                navigation.targetNode = navigation.GetNextNavTarget(navigation.targetNode);
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -25,6 +32,14 @@ public class WaypointNavNode : NavNode
             if (navAgent.targetNode == this && neighbors.Count > 0)
             {
                 navAgent.targetNode = neighbors[Random.Range(0, neighbors.Count)];
+            }
+        }
+
+        if (other.gameObject.TryGetComponent<Navigation>(out Navigation navigation))
+        {
+            if (navigation.targetNode == this && neighbors.Count > 0)
+            {
+                navigation.targetNode = navigation.GetNextNavTarget(navigation.targetNode);
             }
         }
     }
