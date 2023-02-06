@@ -15,7 +15,9 @@ public class StateAgent : Agent
         stateMachine.AddState(new IdleState(this));
         stateMachine.AddState(new PatrolState(this));
         stateMachine.AddState(new ChaseState(this));
-        stateMachine.StartState(nameof(IdleState));
+        stateMachine.AddState(new WanderState(this));
+        stateMachine.AddState(new AttackState(this));
+        stateMachine.StartState(nameof(WanderState));
     }
 
     void Update()
