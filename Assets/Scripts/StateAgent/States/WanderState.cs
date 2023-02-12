@@ -18,7 +18,7 @@ public class WanderState : State
         target = owner.transform.position + Quaternion.AngleAxis(Random.Range(0,360), Vector3.up) * Vector3.forward * 5;
         
         //move towards
-        //owner.movement.MoveTowards(target);
+        owner.movement.MoveTowards(target);
     }
 
     public override void OnExit()

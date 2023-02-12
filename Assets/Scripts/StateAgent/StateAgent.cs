@@ -58,9 +58,19 @@ public class StateAgent : Agent
         //attack transitions
         stateMachine.AddTransition(nameof(AttackState), new Transition(new Condition[] { timerExpiredCondition }), nameof(IdleState));
         stateMachine.AddTransition(nameof(AttackState), new Transition(new Condition[] { enemyNotSeenCondition }), nameof(IdleState));
+        
+        //wander transitions
+        stateMachine.AddTransition(nameof(WanderState), new Transition(new Condition[] { timerExpiredCondition }), nameof(IdleState));
+        stateMachine.AddTransition(nameof(WanderState), new Transition(new Condition[] { enemyNearCondition }), nameof(AttackState));
 
-        stateMachine.AddAnyTransition(new Transition(new Condition[] { deathCondition }), nameof(DeathState));
+        //evade transitions
+        stateMachine.AddTransition(nameof(EvadeState), new Transition(new Condition[] {timerExpiredCondition}), nameof(IdleState));
+        stateMachine.AddTransition(nameof(EvadeState), new Transition(new Condition[] {healthOkCondition}), nameof(IdleState));
+
+        //evade
         stateMachine.AddAnyTransition(new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeState));
+        //death
+        stateMachine.AddAnyTransition(new Transition(new Condition[] { deathCondition }), nameof(DeathState));
 
         stateMachine.StartState(nameof(IdleState));
     }

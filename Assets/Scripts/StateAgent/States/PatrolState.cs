@@ -5,7 +5,6 @@ using static UnityEngine.UI.GridLayoutGroup;
 
 public class PatrolState : State
 {
-    private float timer;
 
     public PatrolState(StateAgent owner) : base(owner)
     {
@@ -15,7 +14,7 @@ public class PatrolState : State
     {
         owner.movement.Resume();
         owner.navigation.targetNode = owner.navigation.GetNearestNode();
-        timer = Random.Range(5, 10);
+        owner.timer.value = Random.Range(5, 10);
     }
 
     public override void OnExit()
@@ -24,15 +23,15 @@ public class PatrolState : State
 
     public override void OnUpdate()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            owner.stateMachine.StartState(nameof(WanderState));
-        }
+        //timer -= Time.deltaTime;
+        //if (timer <= 0)
+        //{
+        //    owner.stateMachine.StartState(nameof(WanderState));
+        //}
 
-        if (owner.perceived.Length > 0)
-        {
-            owner.stateMachine.StartState(nameof(ChaseState));
-        }    
+        //if (owner.perceived.Length > 0)
+        //{
+        //    owner.stateMachine.StartState(nameof(ChaseState));
+        //}    
     }
 }
