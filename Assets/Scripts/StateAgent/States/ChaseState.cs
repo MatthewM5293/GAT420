@@ -20,22 +20,13 @@ public class ChaseState : State
 
     public override void OnUpdate()
     {
-        if (owner.perceived.Length == 0)
+        if (owner.enemySeen)
         {
-            owner.stateMachine.StartState(nameof(IdleState));
-        }
-        else
-        {
+            // reset timer
+            owner.timer.value = 2;
+            // move towards the perceived object position
             owner.movement.MoveTowards(owner.perceived[0].transform.position);
-
-            Vector3 direction = owner.perceived[0].transform.position - owner.transform.position;
-            float distance = direction.magnitude;
-            float angle = Vector3.Angle(owner.transform.forward, direction);
-
-            if (distance < 2.5 && angle < 20)
-            {
-                owner.stateMachine.StartState(nameof(AttackState));
-            }
         }
     }
+
 }

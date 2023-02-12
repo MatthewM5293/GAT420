@@ -10,7 +10,8 @@ public class DeathState : State
 
     public override void OnEnter()
     {
-        ///
+        owner.animator.SetBool("IsDead", true);
+        owner.movement.Stop();
     }
 
     public override void OnExit()
@@ -20,6 +21,9 @@ public class DeathState : State
 
     public override void OnUpdate()
     {
-        ///
+        if (owner.animationDone) 
+        {
+            GameObject.Destroy(owner.gameObject, 1);
+        }
     }
 }

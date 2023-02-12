@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    private float timer;
+    //private float timer;
     public AttackState(StateAgent owner) : base(owner)
     {
     }
@@ -13,13 +13,27 @@ public class AttackState : State
     public override void OnEnter()
     {
         owner.navigation.targetNode = null;
-        owner.movement.Stop();
-        owner.animator.SetTrigger("Attack");
+        owner.movement.Stop();        
 
-        AnimationClip[] clips = owner.animator.runtimeAnimatorController.animationClips;
+        var colliders = Physics.OverlapSphere(owner.transform.position, 2);
+        foreach (var collider in colliders)
+        {
+            //avoid friendly fire
+            if (collider.gameObject == owner.gameObject || collider.gameObject.CompareTag(owner.gameObject.tag)) continue;
 
-        AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Punch");
-        timer = (clip != null) ? clip.length : 1;
+            if (collider.gameObject.TryGetComponent<StateAgent>(out var component))
+            {
+                if (component.health.value > 0)
+                {
+                    owner.animator.SetTrigger("Attack");
+
+                    AnimationClip[] clips = owner.animator.runtimeAnimatorController.animationClips;
+                    AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Punch");
+                    
+                    component.health.value -= Random.Range(10, 25);
+                }
+            }
+        }
     }
 
     public override void OnExit()
@@ -29,10 +43,6 @@ public class AttackState : State
 
     public override void OnUpdate()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            owner.stateMachine.StartState(nameof(ChaseState));
-        }
+        
     }
 }

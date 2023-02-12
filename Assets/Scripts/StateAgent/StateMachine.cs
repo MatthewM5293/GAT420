@@ -28,6 +28,17 @@ public class StateMachine
                 }
             }
         }
+        //check for any transition
+        foreach(var transition in anyTransitions)
+        { 
+            //check for transition to new state
+            if (transition.Key.ToTransition())
+            {
+                StartState(transition.Value.name);
+                break;
+            }
+        }
+
         currentState?.OnUpdate();
 	}
 

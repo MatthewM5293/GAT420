@@ -7,7 +7,7 @@ public abstract class Movement : MonoBehaviour
     [Range(1, 10)] public float minSpeed = 1;
     [Range(1, 10)] public float maxSpeed = 5;
     [Range(1, 100)] public float maxForce = 5;
-    [Range(1, 100)] public float turnRate = 90;
+    [Range(1, 360)] public float turnRate = 90;
 
     public virtual Vector3 velocity { get; set; } = Vector3.zero;
     public virtual Vector3 acceleration { get; set; } = Vector3.zero;
